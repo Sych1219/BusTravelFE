@@ -1,5 +1,6 @@
 import React from 'react';
 import {StatusBar, Text, View,} from 'react-native';
+import Test from "./src/components/Test";
 
 
 function App(): JSX.Element {
@@ -8,7 +9,7 @@ function App(): JSX.Element {
         //     <Text>Test</Text>
         // </View>
         <View className="flex-1 items-center justify-center bg-white">
-            <Text>Open up App.js to start working on your app!</Text>
+           <Test></Test>
         </View>
     );
 }
