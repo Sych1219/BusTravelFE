@@ -1,6 +1,7 @@
 import {Animated, Dimensions, StyleSheet} from "react-native";
 import React from "react";
 import CustomerTabView from "@components/CustomerTabView";
+import MockBusStops from "../model/MockBusStops";
 
 
 // Define the type for your tab routes
@@ -38,9 +39,9 @@ export interface RouteProps {
 // Define your initial state for the tab index and routes
 const initialLayout = {width: Dimensions.get('window').width};
 const NearbyScreen = () => {
-
+    const busStops = MockBusStops
     return (
-        <CustomerTabView/>
+        <CustomerTabView busStops={busStops}/>
     );
 }
 

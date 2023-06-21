@@ -1,16 +1,15 @@
-import {Dimensions, StyleSheet, View} from "react-native";
+import {Dimensions, StyleSheet, Text, View} from "react-native";
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import MockBusStops from "../model/MockBusStops";
 import React, {useState} from "react";
 import BusItem from "@components/BusItem";
 import {Route, SceneMap, TabBar, TabView} from "react-native-tab-view";
-import {RouteProps} from "../screens/NearbyScreen";
+import {BusStopWithBusesInfoProps, RouteProps} from "../screens/NearbyScreen";
 
-
+type BusStopsProp = { busStops: BusStopWithBusesInfoProps[] };
 // Define your initial state for the tab index and routes
 const initialLayout = {width: Dimensions.get('window').width};
-const CustomerTabView = () => {
-    const busStops = MockBusStops
+const CustomerTabView = ({busStops}: BusStopsProp) => {
     const [index, setIndex] = useState(0);
 
     const routesInitial: RouteProps[] = busStops.map((busStop, index) => ({
@@ -47,6 +46,12 @@ const CustomerTabView = () => {
     const renderTabBar = (props: any) => (
         <TabBar {...props} activeColor={'black'} inactiveColor={'gray'} indicatorStyle={{backgroundColor: 'black'}}
                 scrollEnabled={true}
+            // labelStyle={{ flex: 1 }}
+                renderLabel={({route, focused, color}) => (
+                    <Text className={'font-extrabold text-lg'} numberOfLines={1} style={{color, width: '100%'}}>
+                        {route.title}
+                    </Text>
+                )}
                 style={[styles.tabBar, {paddingTop: insets.top}]}
         />
     );
