@@ -7,6 +7,9 @@ import FavouriteScreen from "./src/screens/FavouriteScreen";
 import NearbyScreen from "./src/screens/NearbyScreen";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {HeartIcon, MapIcon} from "react-native-heroicons/outline";
+import CustomerTabView from "@components/CustomerTabView";
+import {SafeAreaView} from "react-native";
+import {SafeAreaProvider} from "react-native-safe-area-context";
 
 type RootParamList = {
     FavouriteScreen: undefined
@@ -20,15 +23,7 @@ function App(): JSX.Element {
     const Root = createNativeStackNavigator<RootParamList>();
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName={'FavouriteScreen'}>
-                <Tab.Screen name="FavouriteScreen" component={FavouriteScreen} options={{
-                    title: 'Favourite',
-                    headerShown: false,
-                    tabBarIcon: ({color, size}) => (
-                        <HeartIcon size={size} color={color}/>
-                    ),
-                    tabBarLabelPosition: 'beside-icon',
-                }}/>
+            <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName={'NearbyScreen'}>
                 <Tab.Screen name="NearbyScreen" component={NearbyScreen} options={{
                     title: 'Nearby',
                     headerShown: false,
@@ -37,8 +32,19 @@ function App(): JSX.Element {
                     ),
                     tabBarLabelPosition: 'beside-icon',
                 }}/>
+                <Tab.Screen name="FavouriteScreen" component={FavouriteScreen} options={{
+                    title: 'Favourite',
+                    headerShown: false,
+                    tabBarIcon: ({color, size}) => (
+                        <HeartIcon size={size} color={color}/>
+                    ),
+                    tabBarLabelPosition: 'beside-icon',
+                }}/>
+
             </Tab.Navigator>
         </NavigationContainer>
+
+
     );
 }
 

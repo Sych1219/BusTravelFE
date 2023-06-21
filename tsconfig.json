@@ -4,7 +4,8 @@
     // ... other options
     "baseUrl": "./src",
     "paths": {
-      "@components/*": ["components/*"]
+      "@components/*": ["components/*"],
+      "@assets/*": ["assets/*"],
     }
   }
 }
