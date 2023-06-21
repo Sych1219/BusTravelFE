@@ -1,0 +1,56 @@
+import {BusStopWithBusesInfoProps} from "../screens/NearbyScreen";
+import {BusType, LoadType} from "@components/BusItem";
+
+const stopWithBusesInfoProps: BusStopWithBusesInfoProps[] = [
+    {
+        busStopRoadName: 'Bus Stop 1',
+        busStopCode: 'BS1',
+        distanceToBusStop: 0.5,
+        services: [
+            {
+                serviceNo: 'A1',
+                operator: 'Operator 1',
+                nextBus: {
+                    countDown: 110,
+                    originCode: 'OC1',
+                    destinationCode: 'DC1',
+                    estimatedArrival: '2023-06-11T09:30:00',
+                    latitude: '123.456',
+                    longitude: '789.012',
+                    visitNumber: '1',
+                    load: LoadType.SEA,
+                    feature: 'Feature 1',
+                    type: BusType.SD,
+                },
+                nextBus2: {
+                    countDown: 130,
+                    originCode: 'OC1',
+                    destinationCode: 'DC1',
+                    estimatedArrival: '2023-06-11T09:35:00',
+                    latitude: '123.456',
+                    longitude: '789.012',
+                    visitNumber: '2',
+                    load: LoadType.LSD,
+                    feature: 'Feature 2',
+                    type: BusType.DD,
+                },
+                nextBus3: {
+                    countDown: 200,
+                    originCode: 'OC1',
+                    destinationCode: 'DC1',
+                    estimatedArrival: '2023-06-11T09:40:00',
+                    latitude: '123.456',
+                    longitude: '789.012',
+                    visitNumber: '3',
+                    load: LoadType.SDA,
+                    feature: 'Feature 3',
+                    type: BusType.BD,
+                },
+            },
+        ],
+    },
+    // Add more bus stops and services as needed
+];
+
+
+export default stopWithBusesInfoProps;

@@ -1,6 +1,6 @@
 import {Dimensions, StyleSheet, Text, View} from "react-native";
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import MockBusStops from "../model/MockBusStops";
+import MockBusStops from "../models/MockBusStops";
 import React, {useState} from "react";
 import BusItem from "@components/BusItem";
 import {Route, SceneMap, TabBar, TabView} from "react-native-tab-view";
@@ -24,13 +24,11 @@ const CustomerTabView = ({busStops}: BusStopsProp) => {
                 {busStop.services.map((service, serviceIndex) => (
                     <BusItem
                         key={serviceIndex}
-                        busCode={service.ServiceNo}
-                        busType={service.NextBus.Type}
-                        isWheelChairAccessible={true}
-                        load={service.NextBus.countDown}
-                        nextBus={service.NextBus.countDown}
-                        nextBus2={service.NextBus2.countDown}
-                        nextBus3={service.NextBus3.countDown}
+                        serviceNo={service.serviceNo}
+                        operator={service.operator}
+                        nextBus={service.nextBus}
+                        nextBus2={service.nextBus2}
+                        nextBus3={service.nextBus3}
                     />
                 ))}
             </View>)

@@ -1,7 +1,8 @@
 import {Animated, Dimensions, StyleSheet} from "react-native";
 import React from "react";
 import CustomerTabView from "@components/CustomerTabView";
-import MockBusStops from "../model/MockBusStops";
+import MockBusStops from "../models/MockBusStops";
+import {BusType, LoadType, Service} from "@components/BusItem";
 
 
 // Define the type for your tab routes
@@ -14,20 +15,21 @@ export interface BusStopWithBusesInfoProps {
     services: Service[];
 }
 
-export interface Service {
-    ServiceNo: string;
-    Operator: string;
-    NextBus: NextBus;
-    NextBus2: NextBus;
-    NextBus3: NextBus;
-}
+// export interface Service {
+//     serviceNo: string;
+//     operator: string;
+//     nextBus: NextBus;
+//     nextBus2: NextBus;
+//     nextBus3: NextBus;
+// }
 
-export interface NextBus {
-    countDown: number;
-    Type: string;
-    EstimatedArrival: string;
-    Feature: string;
-}
+// export interface NextBus {
+//     countDown: number;
+//     type: BusType;
+//     estimatedArrival: string;
+//     feature: string;
+//     load: LoadType;
+// }
 
 
 export interface RouteProps {
@@ -39,9 +41,9 @@ export interface RouteProps {
 // Define your initial state for the tab index and routes
 const initialLayout = {width: Dimensions.get('window').width};
 const NearbyScreen = () => {
-    const busStops = MockBusStops
+    const stopsWithBusInfos = MockBusStops
     return (
-        <CustomerTabView busStops={busStops}/>
+        <CustomerTabView busStops={stopsWithBusInfos}/>
     );
 }
 
