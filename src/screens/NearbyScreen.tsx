@@ -6,6 +6,7 @@ export interface BusStopWithBusesInfoProps {
     busStopRoadName: string;
     busStopCode: string;
     distanceToBusStop: number;
+    busStopDescription: string;
     services: Service[];
 }
 

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {SafeAreaView, Text} from "react-native";
-import BusItem, {Service, BusType, LoadType, NextBus} from "../components/BusItem";
+import BusItem, {NextBus} from "../components/BusItem";
 import axios, {AxiosRequestConfig} from "axios";
 import {userFavoriteBusStopUrl} from "@utils/UrlsUtil";
 

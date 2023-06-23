@@ -1,4 +1,4 @@
-import {ScrollView, Text, View} from "react-native";
+import {ScrollView} from "react-native";
 import {BusStopWithBusesInfoProps} from "../screens/NearbyScreen";
 import BusItem from "@components/BusItem";
 

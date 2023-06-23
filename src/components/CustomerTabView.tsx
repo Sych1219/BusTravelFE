@@ -32,7 +32,7 @@ const CustomerTabView = () => {
 
                 const routesInitial: RouteProps[] = busStopsTemp.map((busStop, index) => ({
                     key: index.toString(),
-                    title: busStop.busStopRoadName
+                    title: busStop.busStopDescription
                 }));
                 setRoutes(routesInitial);
                 const tempSceneMapProps: { [key: string]: React.ComponentType } = {};

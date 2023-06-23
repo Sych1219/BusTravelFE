@@ -1,4 +1,4 @@
-import {Image, SafeAreaView, Text, TouchableOpacity, View} from "react-native";
+import {Image, Text, TouchableOpacity, View} from "react-native";
 import Divider from "./Divider";
 import {useEffect, useState} from "react";
 

@@ -1,15 +1,11 @@
 import React from 'react';
 import {NavigationContainer} from "@react-navigation/native";
-import nearbyScreen from "./src/screens/NearbyScreen";
+import NearbyScreen from "./src/screens/NearbyScreen";
 
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import FavouriteScreen from "./src/screens/FavouriteScreen";
-import NearbyScreen from "./src/screens/NearbyScreen";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import {HeartIcon, MapIcon} from "react-native-heroicons/outline";
-import CustomerTabView from "@components/CustomerTabView";
-import {SafeAreaView} from "react-native";
-import {SafeAreaProvider} from "react-native-safe-area-context";
 
 type RootParamList = {
     FavouriteScreen: undefined
