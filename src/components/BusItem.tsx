@@ -19,9 +19,9 @@ export interface NextBus {
     latitude: string;
     longitude: string;
     visitNumber: string;
-    load: LoadType;
+    load: string;
     feature: string;
-    type: BusType;
+    type: string;
 
 }
 
@@ -38,13 +38,13 @@ export enum LoadType {//SEA (for Seats Available) or LSD (for Limited Standing) 
 }
 
 //input is LoadType output is color string
-const getLoadColor = (load: LoadType): string => {
+const getLoadColor = (load: string): string => {
     switch (load) {
-        case LoadType.SEA:
+        case 'SEA':
             return 'text-green-500';
-        case LoadType.SDA:
+        case "SDA":
             return 'text-yellow-500';
-        case LoadType.LSD:
+        case "LSD":
             return 'text-red-500';
     }
     return 'text-green-500';
@@ -107,8 +107,8 @@ const BusItem = ({
                                 <Text className={`text-xs text-white ${loadColor3}`}>{Math.floor(nextBus3.countDown/60) }</Text>
                             </View>
                             {/*base on the load will get green yellow red for text*/}
-                            <Text
-                                className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{formatCountdown(countdown)}</Text>
+                            <Text className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{formatCountdown(countdown)}</Text>
+                        {/*<Text className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{Math.floor(nextBus.countDown/60)}</Text>*/}
 
                     </TouchableOpacity>
                 </View>

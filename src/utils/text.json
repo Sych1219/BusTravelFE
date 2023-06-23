@@ -1,0 +1,169 @@
+[
+  {
+    "busStopRoadName": "Punggol Field",
+    "busStopCode": "65349",
+    "distanceToBusStop": 171.29713352586677,
+    "services": [
+      {
+        "serviceNo": "117",
+        "operator": "SBST",
+        "nextBus": {
+          "countDown": 92,
+          "originCode": "58009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:24:25+08:00",
+          "latitude": "1.40137",
+          "longitude": "103.896323",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "DD"
+        },
+        "nextBus2": {
+          "countDown": 940,
+          "originCode": "58009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:38:33+08:00",
+          "latitude": "1.4225748333333332",
+          "longitude": "103.863161",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "DD"
+        },
+        "nextBus3": {
+          "countDown": 1980,
+          "originCode": "58009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:55:53+08:00",
+          "latitude": "1.4174366666666667",
+          "longitude": "103.83342933333333",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        }
+      },
+      {
+        "serviceNo": "119",
+        "operator": "GAS",
+        "nextBus": {
+          "countDown": 1111,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:41:24+08:00",
+          "latitude": "1.3823971666666666",
+          "longitude": "103.89939233333334",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        },
+        "nextBus2": {
+          "countDown": 1691,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:51:04+08:00",
+          "latitude": "1.369013",
+          "longitude": "103.894227",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        },
+        "nextBus3": {
+          "countDown": 2458,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T16:03:51+08:00",
+          "latitude": "1.3600516666666667",
+          "longitude": "103.88510266666667",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        }
+      },
+      {
+        "serviceNo": "381",
+        "operator": "GAS",
+        "nextBus": {
+          "countDown": 120,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:24:53+08:00",
+          "latitude": "1.40436",
+          "longitude": "103.89712733333333",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        },
+        "nextBus2": {
+          "countDown": 1311,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:44:44+08:00",
+          "latitude": "1.3981666666666666",
+          "longitude": "103.91883333333334",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        },
+        "nextBus3": {
+          "countDown": 1707,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:51:20+08:00",
+          "latitude": "1.3955168333333334",
+          "longitude": "103.91059983333334",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        }
+      },
+      {
+        "serviceNo": "382W",
+        "operator": "GAS",
+        "nextBus": {
+          "countDown": -64,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:21:48+08:00",
+          "latitude": "1.4031631666666666",
+          "longitude": "103.89820516666667",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "DD"
+        },
+        "nextBus2": {
+          "countDown": 438,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:30:11+08:00",
+          "latitude": "1.4083828333333335",
+          "longitude": "103.89608016666666",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "SD"
+        },
+        "nextBus3": {
+          "countDown": 1110,
+          "originCode": "65009",
+          "destinationCode": "65009",
+          "estimatedArrival": "2023-06-22T15:41:23+08:00",
+          "latitude": "0.0",
+          "longitude": "0.0",
+          "visitNumber": "1",
+          "load": "SEA",
+          "feature": "WAB",
+          "type": "DD"
+        }
+      }
+    ]
+  }
+]

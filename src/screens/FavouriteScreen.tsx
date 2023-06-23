@@ -1,7 +1,15 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {SafeAreaView} from "react-native";
 import BusItem, {Service, BusType, LoadType} from "../components/BusItem";
-
+import axios, {AxiosRequestConfig} from "axios";
+import {BusStopWithBusesInfoProps} from "./NearbyScreen";
+const baseUrl = 'http://localhost:8080/busStop';
+const busArrivingInfoUrl = `${baseUrl}/getBusArrivingInfo`;
+interface BusArrivingRequestParams {
+    longitude: number;
+    latitude: number;
+    stopCount: number;
+}
 const FavouriteScreen = () => {
     //based on BusItemProps to mock several data each inside is BusItemProps
     let data: Service[] = [
@@ -126,7 +134,26 @@ const FavouriteScreen = () => {
             },
         },
     ]
-
+    // const [busData, setBusData] = useState<BusStopWithBusesInfoProps[]>([]);
+    // useEffect(() => {
+    //     const params: BusArrivingRequestParams = {
+    //         longitude: 103.9004605,
+    //         latitude: 1.4037280,
+    //         stopCount: 1,
+    //     }
+    //     const config: AxiosRequestConfig = {
+    //         params: params,
+    //     };
+    //     try {
+    //         axios.get(busArrivingInfoUrl, config).then((response) => {
+    //             // setBusData(response.data.json());
+    //             // console.log("ttttt",response.data[0].services);
+    //         });
+    //     } catch (error) {
+    //         throw new Error('Failed to fetch data');
+    //     }
+    // }, []);
+    // // console.log("stopsWithBusInfos", busData)
 
     return (
         <SafeAreaView>
