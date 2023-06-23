@@ -5,8 +5,6 @@ import axios, {AxiosRequestConfig} from "axios";
 import {userFavoriteBusStopUrl} from "@utils/UrlsUtil";
 
 
-
-
 interface FavouriteBus {
     busStop: BusStop;
     busCode: string;
@@ -32,8 +30,6 @@ interface BusArrivingRequestParams {
 
 
 const FavouriteScreen = () => {
-    //based on BusItemProps to mock several data each inside is BusItemProps
-
     const [favouriteBuses, setFavouriteBuses] = useState<FavouriteBus[]>([]);
     useEffect(() => {
         const params: BusArrivingRequestParams = {
@@ -57,7 +53,7 @@ const FavouriteScreen = () => {
     return (
         <SafeAreaView>
             {
-                favouriteBuses.map((item, index) =>
+                favouriteBuses.length > 0 ? favouriteBuses.map((item, index) =>
                     (<BusItem key={index}
                               serviceNo={item.busCode}
                               operator={"hardcode operator"}
@@ -65,7 +61,7 @@ const FavouriteScreen = () => {
                               nextBus2={item.nextBus2}
                               nextBus3={item.nextBus3}
                     />)
-                )|| <Text>no data</Text>
+                ) : <Text className={'text-lg text-red-500'}>no data</Text>
             }
 
 

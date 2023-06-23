@@ -1,8 +1,6 @@
-import {Dimensions, ScrollView, StyleSheet, Text, View} from "react-native";
+import {Dimensions, StyleSheet, Text, View} from "react-native";
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import MockBusStops from "../models/MockBusStops";
 import React, {useEffect, useState} from "react";
-import BusItem from "@components/BusItem";
 import {Route, SceneMap, TabBar, TabView} from "react-native-tab-view";
 import {BusStopWithBusesInfoProps, RouteProps} from "../screens/NearbyScreen";
 import axios from "axios";
@@ -70,14 +68,14 @@ const CustomerTabView = () => {
     };
 
     return (
-        routes?.length > 0 && sceneMapProps && Object.keys(sceneMapProps).length > 0 &&
+        routes?.length > 0 && sceneMapProps && Object.keys(sceneMapProps).length > 0 ?
         <TabView
             navigationState={{index, routes}}
             renderScene={SceneMap(sceneMapProps)}
             onIndexChange={handleIndexChange}
             initialLayout={initialLayout}
             renderTabBar={renderTabBar}
-        /> || (<View><Text>Loading...</Text></View>)
+        /> : (<View><Text>Loading...</Text></View>)
 
 
     );
