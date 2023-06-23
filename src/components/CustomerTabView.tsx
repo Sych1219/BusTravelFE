@@ -7,6 +7,7 @@ import {Route, SceneMap, TabBar, TabView} from "react-native-tab-view";
 import {BusStopWithBusesInfoProps, RouteProps} from "../screens/NearbyScreen";
 import axios from "axios";
 import ScrollWithBusItems from "@components/ScrollWithBusItems";
+import {busArrivingInfoUrl} from "@utils/UrlsUtil";
 
 
 // Define your initial state for the tab index and routes
@@ -20,7 +21,7 @@ const CustomerTabView = () => {
     // const busStops = MockBusStops
     useEffect(() => {
         try {
-            axios.get('http://localhost:8080/busStop/getBusArrivingInfo', {
+            axios.get(busArrivingInfoUrl, {
                 params: {
                     longitude: 103.9004605,
                     latitude: 1.4037280,

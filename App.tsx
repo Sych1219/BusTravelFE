@@ -23,7 +23,7 @@ function App(): JSX.Element {
     const Root = createNativeStackNavigator<RootParamList>();
     return (
         <NavigationContainer>
-            <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName={'NearbyScreen'}>
+            <Tab.Navigator screenOptions={{headerShown: false}} initialRouteName={'FavouriteScreen'}>
                 <Tab.Screen name="NearbyScreen" component={NearbyScreen} options={{
                     title: 'Nearby',
                     headerShown: false,
