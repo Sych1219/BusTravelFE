@@ -6,19 +6,14 @@ import BusItem from "@components/BusItem";
 import {Route, SceneMap, TabBar, TabView} from "react-native-tab-view";
 import {BusStopWithBusesInfoProps, RouteProps} from "../screens/NearbyScreen";
 import axios from "axios";
+import ScrollWithBusItems from "@components/ScrollWithBusItems";
 
-type BusStopsProp = { busStops: BusStopWithBusesInfoProps[] };
+
 // Define your initial state for the tab index and routes
 const initialLayout = {width: Dimensions.get('window').width};
 const CustomerTabView = () => {
     const [busStops, setBusStops] = useState<BusStopWithBusesInfoProps[]>([]);
 
-    const routesInitial: RouteProps[] = busStops.map((busStop, index) => ({
-        key: index.toString(),
-        title: busStop.busStopRoadName
-    }));
-
-    console.log("routesInitial", routesInitial)
     const [routes, setRoutes] = useState<Route[]>([]);
     const [sceneMapProps, setSceneMapProps] = useState<{ [key: string]: React.ComponentType }>({});
 
@@ -42,21 +37,9 @@ const CustomerTabView = () => {
                 }));
                 setRoutes(routesInitial);
                 const tempSceneMapProps: { [key: string]: React.ComponentType } = {};
-                busStopsTemp.forEach((busStop, index) => {
-                    tempSceneMapProps[index.toString()] = (() => (<View>
-                            {busStop.services.map((service, serviceIndex) => (
-                                (<BusItem
-                                    key={serviceIndex}
-                                    serviceNo={service.serviceNo}
-                                    operator={service.operator}
-                                    nextBus={service.nextBus}
-                                    nextBus2={service.nextBus2}
-                                    nextBus3={service.nextBus3}
-                                />)
-                            ))}
-                        </View>)
-
-                    );
+                busStopsTemp.forEach((busStopWithBusesInfo, index) => {
+                    tempSceneMapProps[index.toString()] = (() => (
+                        <ScrollWithBusItems busStopWithBusesInfo={busStopWithBusesInfo}/>));
                 });
                 setSceneMapProps(tempSceneMapProps);
             });
@@ -66,29 +49,6 @@ const CustomerTabView = () => {
     }, []);
 
     const [index, setIndex] = useState(0);
-
-    // useEffect(() => {
-    //     busStops.forEach((busStop, index) => {
-    //         const tempSceneMapProps: { [key: string]: React.ComponentType } = {};
-    //         tempSceneMapProps[index.toString()] = (() => (<View>
-    //                 {busStop.services.map((service, serviceIndex) => (
-    //                     (<BusItem
-    //                         key={serviceIndex}
-    //                         serviceNo={service.serviceNo}
-    //                         operator={service.operator}
-    //                         nextBus={service.nextBus}
-    //                         nextBus2={service.nextBus2}
-    //                         nextBus3={service.nextBus3}
-    //                     />)
-    //                 ))}
-    //             </View>)
-    //
-    //         );
-    //
-    //         setSceneMapProps(tempSceneMapProps);
-    //     });
-    // }, [busStops]);
-
 
     const insets = useSafeAreaInsets();
     const renderTabBar = (props: any) => (
@@ -116,7 +76,7 @@ const CustomerTabView = () => {
             onIndexChange={handleIndexChange}
             initialLayout={initialLayout}
             renderTabBar={renderTabBar}
-        />
+        /> || (<View><Text>Loading...</Text></View>)
 
 
     );
