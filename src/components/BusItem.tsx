@@ -49,6 +49,7 @@ const getLoadColor = (load: string): string => {
     }
     return 'text-green-500';
 }
+
 function formatCountdown(countdown: number): string {
     const minutes = Math.floor(countdown / 60);
     const seconds = countdown % 60;
@@ -60,6 +61,18 @@ function formatCountdown(countdown: number): string {
     const formattedSeconds = String(seconds).padStart(2, '0');
 
     return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+function getBusType(busType: string): string {
+    switch (busType) {
+        case 'SD':
+            return "single deck";
+        case 'DD':
+            return "double deck";
+        case 'BD':
+            return "bendy";
+    }
+    return "";
 }
 
 const BusItem = ({
@@ -95,19 +108,23 @@ const BusItem = ({
 
                 <View className={'flex-row space-x-2'}>
                     <View className="relative">
-                        <Text>{nextBus.type}</Text>
+                        {getBusType(nextBus.type) != "" &&
+                            <Text className={'w-25 h-5 '}>{getBusType(nextBus.type)}</Text>}
                         {isWheelChairAccessible &&
                             <Image className="w-5 h-5 absolute bottom-0 right-0"
                                    source={require('../assets/wheelchair.jpg')}/>}
                     </View>
-                    <TouchableOpacity  className="w-20 h-12 bg-black flex items-center justify-center rounded mx-1">
+                    <TouchableOpacity className="w-20 h-12 bg-black flex items-center justify-center rounded mx-1">
 
-                            <View className="flex-row absolute bottom-0 right-1 ">
-                                <Text className={`text-xs text-white ${loadColor2}`}>{Math.floor(nextBus2.countDown/60) }, </Text>
-                                <Text className={`text-xs text-white ${loadColor3}`}>{Math.floor(nextBus3.countDown/60) }</Text>
-                            </View>
-                            {/*base on the load will get green yellow red for text*/}
-                            <Text className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{formatCountdown(countdown)}</Text>
+                        <View className="flex-row absolute bottom-0 right-1 ">
+                            <Text
+                                className={`text-xs text-white ${loadColor2}`}>{Math.floor(nextBus2.countDown / 60)}, </Text>
+                            <Text
+                                className={`text-xs text-white ${loadColor3}`}>{Math.floor(nextBus3.countDown / 60)}</Text>
+                        </View>
+                        {/*base on the load will get green yellow red for text*/}
+                        <Text
+                            className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{formatCountdown(countdown)}</Text>
                         {/*<Text className={`text-center text-white text-xl font-extrabold ${loadColor}`}>{Math.floor(nextBus.countDown/60)}</Text>*/}
 
                     </TouchableOpacity>
